@@ -21914,7 +21914,7 @@ fi
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=dsyev
@@ -22000,7 +22000,7 @@ rm -f core conftest.err conftest.$ac_objext \
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=dsyev
@@ -22079,7 +22079,7 @@ rm -f core conftest.err conftest.$ac_objext \
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=dsyev
@@ -22180,7 +22180,7 @@ rm -f core conftest.err conftest.$ac_objext \
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=dsyev
@@ -22260,7 +22260,7 @@ rm -f core conftest.err conftest.$ac_objext \
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=dsyev
@@ -22337,7 +22337,7 @@ rm -f core conftest.err conftest.$ac_objext \
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=dsyev
@@ -22434,7 +22434,7 @@ rm -f core conftest.err conftest.$ac_objext \
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=dsyev
@@ -22521,7 +22521,7 @@ $as_echo "$as_me: WARNING: lapack.pc and blas.pc present, but could not find dsy
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=dsyev
@@ -22673,7 +22673,7 @@ $as_echo "$as_me: WARNING: Unsupported or unknown name-mangling scheme: ${dsyev_
   esac
 
     if test -n "$lapack_pcfiles" ; then
-        IPOPTLIB_PCFILES="$lapack_pcfiles $IPOPTLIB_PCFILES"
+         IPOPTLIB_PCFILES="$lapack_pcfiles $IPOPTLIB_PCFILES"
        fi
        IPOPTLIB_LFLAGS="$lapack_lflags $IPOPTLIB_LFLAGS"
 
@@ -22708,8 +22708,8 @@ $as_echo_n "checking for package ASL... " >&6; }
 
   coin_has_asl=noInfo
   if test x"$COIN_SKIP_PROJECTS" != x ; then
-    for pkg in $COIN_SKIP_PROJECTS ; do
-      if test "$pkg" = "$asl" ; then
+    for pkg in `echo $COIN_SKIP_PROJECTS | tr '[:upper:]' '[:lower:]'` ; do
+      if test "$pkg" = "asl" ; then
         coin_has_asl=skipping
       fi
     done
@@ -22779,6 +22779,7 @@ fi
         coin_has_asl=requested
         asl_failmode=''
         asl_lflags="$withval"
+        asl_pcfiles=''
         ;;
     esac
   else
@@ -22787,6 +22788,7 @@ fi
        test -n "$with_asl_data" ; then
       coin_has_asl=requested
       asl_failmode=''
+      asl_pcfiles=''
     fi
   fi
 
@@ -22801,6 +22803,7 @@ fi
            * )
              coin_has_asl=yes
              asl_lflags="$withval"
+             asl_pcfiles=''
              ;;
          esac
        fi
@@ -22814,6 +22817,7 @@ fi
            * )
              coin_has_asl=yes
              asl_cflags="$withval"
+             asl_pcfiles=''
              ;;
          esac
        fi
@@ -22961,8 +22965,8 @@ $as_echo_n "checking for package Mumps... " >&6; }
 
   coin_has_mumps=noInfo
   if test x"$COIN_SKIP_PROJECTS" != x ; then
-    for pkg in $COIN_SKIP_PROJECTS ; do
-      if test "$pkg" = "$mumps" ; then
+    for pkg in `echo $COIN_SKIP_PROJECTS | tr '[:upper:]' '[:lower:]'` ; do
+      if test "$pkg" = "mumps" ; then
         coin_has_mumps=skipping
       fi
     done
@@ -23032,6 +23036,7 @@ fi
         coin_has_mumps=requested
         mumps_failmode=''
         mumps_lflags="$withval"
+        mumps_pcfiles=''
         ;;
     esac
   else
@@ -23040,6 +23045,7 @@ fi
        test -n "$with_mumps_data" ; then
       coin_has_mumps=requested
       mumps_failmode=''
+      mumps_pcfiles=''
     fi
   fi
 
@@ -23054,6 +23060,7 @@ fi
            * )
              coin_has_mumps=yes
              mumps_lflags="$withval"
+             mumps_pcfiles=''
              ;;
          esac
        fi
@@ -23067,6 +23074,7 @@ fi
            * )
              coin_has_mumps=yes
              mumps_cflags="$withval"
+             mumps_pcfiles=''
              ;;
          esac
        fi
@@ -23218,8 +23226,8 @@ $as_echo_n "checking for package HSL... " >&6; }
 
   coin_has_hsl=noInfo
   if test x"$COIN_SKIP_PROJECTS" != x ; then
-    for pkg in $COIN_SKIP_PROJECTS ; do
-      if test "$pkg" = "$hsl" ; then
+    for pkg in `echo $COIN_SKIP_PROJECTS | tr '[:upper:]' '[:lower:]'` ; do
+      if test "$pkg" = "hsl" ; then
         coin_has_hsl=skipping
       fi
     done
@@ -23289,6 +23297,7 @@ fi
         coin_has_hsl=requested
         hsl_failmode=''
         hsl_lflags="$withval"
+        hsl_pcfiles=''
         ;;
     esac
   else
@@ -23297,6 +23306,7 @@ fi
        test -n "$with_hsl_data" ; then
       coin_has_hsl=requested
       hsl_failmode=''
+      hsl_pcfiles=''
     fi
   fi
 
@@ -23311,6 +23321,7 @@ fi
            * )
              coin_has_hsl=yes
              hsl_lflags="$withval"
+             hsl_pcfiles=''
              ;;
          esac
        fi
@@ -23324,6 +23335,7 @@ fi
            * )
              coin_has_hsl=yes
              hsl_cflags="$withval"
+             hsl_pcfiles=''
              ;;
          esac
        fi
@@ -23506,7 +23518,7 @@ $as_echo "$as_me: HSLLIB_CFLAGS: \"${HSLLIB_CFLAGS}\"" >&6;}
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=ma27ad
@@ -23635,7 +23647,7 @@ $as_echo "$as_me: WARNING: Unsupported or unknown name-mangling scheme: $ma27ad_
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=ma28a
@@ -23718,7 +23730,7 @@ $as_echo "$as_me: WARNING: Name mangling of MA28 different than Fortran. This wi
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=ma28ad
@@ -23835,7 +23847,7 @@ if test "$have_pardiso_project" = yes ; then
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=pardiso_ipopt_newinterface
@@ -23970,7 +23982,7 @@ $as_echo "#define IPOPT_HAS_PARDISO 1" >>confdefs.h
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=pardiso_exist_parallel
@@ -24056,7 +24068,7 @@ else
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=pardiso
@@ -24218,7 +24230,7 @@ if test "$have_wsmp" = "yes"; then
 
   for ac_extra in "no extra underscore" "extra underscore" ; do
     for ac_case in "lower case" "upper case" ; do
-      for ac_trail in "no underscore" "underscore" ; do
+      for ac_trail in "underscore" "no underscore" ; do
         case $ac_case in
           "lower case")
             ac_name=wssmp
@@ -24837,7 +24849,7 @@ else
 JAVA_TEST=Test.java
 CLASS_TEST=Test.class
 cat << \EOF > $JAVA_TEST
-/* #line 24840 "configure" */
+/* #line 24852 "configure" */
 public class Test {
 }
 EOF
@@ -25323,7 +25335,7 @@ else
 JAVA_TEST=Test.java
 CLASS_TEST=Test.class
 cat << \EOF > $JAVA_TEST
-/* #line 25326 "configure" */
+/* #line 25338 "configure" */
 public class Test {
 }
 EOF
@@ -25357,7 +25369,7 @@ JAVA_TEST=Test.java
 CLASS_TEST=Test.class
 TEST=Test
 cat << \EOF > $JAVA_TEST
-/* [#]line 25360 "configure" */
+/* [#]line 25372 "configure" */
 public class Test {
 public static void main (String args[]) {
         System.exit (0);
